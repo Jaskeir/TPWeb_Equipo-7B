@@ -74,9 +74,11 @@
   <ItemGroup>
     <Compile Include="clases\Articulo.cs" />
     <Compile Include="clases\Categoria.cs" />
+    <Compile Include="clases\Cliente.cs" />
     <Compile Include="clases\Imagen.cs" />
     <Compile Include="clases\Marca.cs" />
     <Compile Include="clases\Validaciones.cs" />
+    <Compile Include="clases\Voucher.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

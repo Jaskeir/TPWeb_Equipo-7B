@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace dominio
+namespace TP_Promo_Web.clases
 {
     public class Articulo
     {

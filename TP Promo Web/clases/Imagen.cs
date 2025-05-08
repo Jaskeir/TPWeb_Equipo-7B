@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dominio
+namespace TP_Promo_Web.clases
 {
     public class Imagen
     {
