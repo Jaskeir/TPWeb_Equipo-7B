@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TP_Promo_Web
 {
-    public partial class Main : System.Web.UI.Page
+    public partial class masterPage : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
