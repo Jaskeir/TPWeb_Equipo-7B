@@ -17,7 +17,6 @@ namespace TP_Promo_Web
             {
                 return;
             }
-            
         }
 
         protected void btnCanjear_Click(object sender, EventArgs e)

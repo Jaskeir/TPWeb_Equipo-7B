@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
 
-namespace TP_Promo_Web.clases
+namespace dominio
 {
     public class EmailService
     {

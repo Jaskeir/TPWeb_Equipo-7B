@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TP_Promo_Web.clases
+namespace dominio
 {
     public class Cliente
     {
