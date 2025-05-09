@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Datos Cliente.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="default.aspx" />
@@ -77,6 +78,13 @@
     <Compile Include="clases\Marca.cs" />
     <Compile Include="clases\Validaciones.cs" />
     <Compile Include="clases\Voucher.cs" />
+    <Compile Include="Datos Cliente.aspx.cs">
+      <DependentUpon>Datos Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Datos Cliente.aspx.designer.cs">
+      <DependentUpon>Datos Cliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
