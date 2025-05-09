@@ -30,7 +30,7 @@ namespace TP_Promo_Web
         {
             //Label1.Text = "Canjeando el código: " + insertCode.Text;
             EmailService emailService = new EmailService();
-            emailService.sendMail("lucianaherrera728@gmail.com", "Correo de prueba", insertCode.Text);
+            emailService.sendMail("", "Correo de prueba", insertCode.Text);
         }
     }
 }
