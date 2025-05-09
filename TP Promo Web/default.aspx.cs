@@ -22,7 +22,8 @@ namespace TP_Promo_Web
 
         protected void btnCanjear_Click(object sender, EventArgs e)
         {
-            Session.Add("Code", code);
+            Session.Add("Code", code.Text);
+
             Response.Redirect("productos.aspx", false);
         }
     }
