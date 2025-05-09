@@ -5,10 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
         <div>
-            <!----------*******************************************************--->
             <header>FELICIDADES!! CANJEA TU VOUCHER!!</header>
-            <!----------*****deberia quedar formato con la master page ************--->
-
             <div class="row">
 
                 <div class="col-md-3">
@@ -42,13 +39,9 @@
                 </div>
 
                 <div class="col-12">
-
                     <asp:Button Text="Canjear" ID="btnCanjear" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" />
                 </div>
             </div>
-
-            <!----------*******************************************************--->
-
         </div>
     </form>
 </asp:Content>
