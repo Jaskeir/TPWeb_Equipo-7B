@@ -71,14 +71,6 @@
     <Content Include="productos.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clases\Articulo.cs" />
-    <Compile Include="clases\Categoria.cs" />
-    <Compile Include="clases\Cliente.cs" />
-    <Compile Include="clases\emailService.cs" />
-    <Compile Include="clases\Imagen.cs" />
-    <Compile Include="clases\Marca.cs" />
-    <Compile Include="clases\Validaciones.cs" />
-    <Compile Include="clases\Voucher.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -124,7 +116,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="clases\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="dominio\dominio.csproj">
+      <Project>{cd4ffccc-0223-4be0-bb5a-08e7c4c3e61b}</Project>
+      <Name>dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
