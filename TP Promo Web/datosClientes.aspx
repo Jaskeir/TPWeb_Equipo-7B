@@ -23,6 +23,11 @@
                     <asp:TextBox runat="server" ID="txtApel" CssClass="form-control" />
                 </div>
 
+                 <div class="col-md-4">
+                    <label for="txtDirec" class="form-label">Email</label>
+                    <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
+                </div>
+
                 <div class="col-md-4">
                     <label for="txtDirec" class="form-label">Dirección</label>
                     <asp:TextBox runat="server" ID="txtDirec" CssClass="form-control" />
@@ -39,7 +44,7 @@
                 </div>
 
                 <div class="col-12">
-                    <asp:Button Text="Canjear" ID="btnCanjear" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" />
+                    <asp:Button Text="Canjear" ID="btnCanjear" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" style="margin-top: 10px;" />
                 </div>
             </div>
         </div>
