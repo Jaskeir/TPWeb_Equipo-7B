@@ -10,6 +10,8 @@
 *.userosscache
 *.sln.docstates
 
+TP Promo Web/clases/emailService.cs
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

@@ -18,7 +18,7 @@ namespace TP_Promo_Web.clases
 
             serverSMTP = new SmtpClient("smtp.mailersend.net", 587);
             serverSMTP.UseDefaultCredentials = false;
-            serverSMTP.Credentials = new NetworkCredential("MS_sEUHrJ@test-zxk54v882wpljy6v.mlsender.net", "mssp.TeC9bnB.jy7zpl9d8p3g5vx6.yOTpR9s");
+            serverSMTP.Credentials = new NetworkCredential("", "");
             serverSMTP.DeliveryMethod = SmtpDeliveryMethod.Network;
             serverSMTP.EnableSsl = true;
         }
@@ -26,7 +26,7 @@ namespace TP_Promo_Web.clases
         public void sendMail(string sendTo, string subject, string body)
         {
             email = new MailMessage();
-            email.From = new MailAddress("MS_sEUHrJ@test-zxk54v882wpljy6v.mlsender.net");
+            email.From = new MailAddress("");
             email.To.Add(sendTo);
             email.Subject = subject;
             email.IsBodyHtml = true;
