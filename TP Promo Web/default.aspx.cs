@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using TP_Promo_Web.clases;
+using negocio;
 
 namespace TP_Promo_Web
 {
@@ -23,7 +23,38 @@ namespace TP_Promo_Web
         {
             Session.Add("Code", code.Text);
 
-            Response.Redirect("productos.aspx", false);
+            string codigo = code.Text;
+
+            database datos = new database();
+
+            try
+            {
+                datos.setQuery("Select CodigoVoucher from Vouchers where CodigoVoucher = @codigo AND [IdCliente] IS  NULL");
+                datos.setParameter("@codigo", codigo);
+                datos.execQuery();
+
+                if(datos.Lector.Read())
+                {
+                   
+                    
+                    Response.Redirect("productos.aspx", false);
+                }
+                else
+                {
+                    lblCanje.Text = "Codigo inexistente o ya canjeado";
+                }
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                datos.closeConnection();
+            }
+
+
+            
         }
     }
 }

@@ -11,7 +11,11 @@ namespace TP_Promo_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            
             code.InnerText = Session["Code"].ToString();
+            
+            
         }
     }
 }

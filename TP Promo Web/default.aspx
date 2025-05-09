@@ -9,6 +9,7 @@
                 <div class="col">
                     <asp:TextBox ID="code" runat="server" CssClass="form-control" placeholder ="Ingrese su codigo de voucher" style="margin-bottom:10px"></asp:TextBox>
                     <asp:Button Text="Canjear" ID="btnCanjear" CssClass="btn btn-primary" runat="server" OnClick="btnCanjear_Click" />
+                    <asp:Label ID="lblCanje" runat="server" />
                 </div>
             <div class="col-4"></div>
         </div>
