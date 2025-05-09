@@ -64,10 +64,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Datos Cliente.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="default.aspx" />
+    <Content Include="datosClientes.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases\Articulo.cs" />
@@ -78,13 +78,6 @@
     <Compile Include="clases\Marca.cs" />
     <Compile Include="clases\Validaciones.cs" />
     <Compile Include="clases\Voucher.cs" />
-    <Compile Include="Datos Cliente.aspx.cs">
-      <DependentUpon>Datos Cliente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Datos Cliente.aspx.designer.cs">
-      <DependentUpon>Datos Cliente.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -102,6 +95,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="datosClientes.aspx.cs">
+      <DependentUpon>datosClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="datosClientes.aspx.designer.cs">
+      <DependentUpon>datosClientes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

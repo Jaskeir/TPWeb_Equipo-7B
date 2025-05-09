@@ -11,7 +11,7 @@ namespace TP_Promo_Web
 {
 
 
-    public partial class Datos_Cliente
+    public partial class WebForm2
     {
 
         /// <summary>
