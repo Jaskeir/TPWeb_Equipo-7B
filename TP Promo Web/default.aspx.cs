@@ -21,29 +21,25 @@ namespace TP_Promo_Web
 
         protected void btnCanjear_Click(object sender, EventArgs e)
         {
-            Session.Add("Code", code.Text);
-
             string codigo = code.Text;
-
             database datos = new database();
-
             try
             {
                 datos.setQuery("Select CodigoVoucher from Vouchers where CodigoVoucher = @codigo AND [IdCliente] IS  NULL");
                 datos.setParameter("@codigo", codigo);
                 datos.execQuery();
 
-                if(datos.Lector.Read())
+                if (datos.Lector.Read())
                 {
-                   
-                    
+                    Session.Add("Code", code.Text);
                     Response.Redirect("productos.aspx", false);
                 }
                 else
                 {
                     lblCanje.Text = "Codigo inexistente o ya canjeado";
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -54,7 +50,7 @@ namespace TP_Promo_Web
             }
 
 
-            
+
         }
     }
 }

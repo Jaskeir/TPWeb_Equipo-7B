@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
+using negocio;
 
 namespace TP_Promo_Web
 {
@@ -13,9 +16,13 @@ namespace TP_Promo_Web
         {
 
             
-            code.InnerText = Session["Code"].ToString();
-            
-            
+            //code.InnerText = Session["Code"].ToString();
+            articuloDatos articuloDatos = new articuloDatos();
+
+            rptArticulos.DataSource = articuloDatos.getArticles();
+            rptArticulos.DataBind();
+
+
         }
     }
 }
