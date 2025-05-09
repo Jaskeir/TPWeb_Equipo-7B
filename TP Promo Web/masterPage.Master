@@ -27,15 +27,9 @@
     </div>
 
     <footer class="py-3 my-4 bg-dark text-light">
-        <ul class="nav justify-content-center border-bottom border-light pb-3 mb-3">
-            <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-light">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-light">Equipo</a>
-            </li>
-        </ul>
+        <ul class="nav justify-content-center border-bottom border-light ">
         <p class="text-center text-light">© Grupo 7B - 2025</p>
+        </ul>
     </footer>
 </body>
 </html>

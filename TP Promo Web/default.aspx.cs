@@ -17,7 +17,7 @@ namespace TP_Promo_Web
             {
                 return;
             }
-            insertCode.Text = "Primera carga";
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -29,8 +29,10 @@ namespace TP_Promo_Web
         protected void btnCanjear_Click(object sender, EventArgs e)
         {
             //Label1.Text = "Canjeando el código: " + insertCode.Text;
-            EmailService emailService = new EmailService();
-            emailService.sendMail("", "Correo de prueba", insertCode.Text);
+            //EmailService emailService = new EmailService();
+            //emailService.sendMail("", "Correo de prueba", insertCode.Text);
+
+            Response.Redirect("productos.aspx", false);
         }
     }
 }

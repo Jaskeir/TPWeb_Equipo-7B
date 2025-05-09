@@ -68,6 +68,7 @@
     <Content Include="Web.config" />
     <Content Include="default.aspx" />
     <Content Include="datosClientes.aspx" />
+    <Content Include="productos.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases\Articulo.cs" />
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="datosClientes.aspx.designer.cs">
       <DependentUpon>datosClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productos.aspx.cs">
+      <DependentUpon>productos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productos.aspx.designer.cs">
+      <DependentUpon>productos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
