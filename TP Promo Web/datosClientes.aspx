@@ -10,12 +10,12 @@
 
                 <div class="col-md-3">
                     <label for="txtDNI" class="form-label">DNI</label>
-                    <asp:TextBox runat="server" ID="txtDNI" CssClass="form-control" />
+                    <asp:TextBox runat="server" ID="txtDNI" CssClass="form-control" AutoPostBack ="true" OnTextChanged="txtDNI_TextChanged"/>
                 </div>
 
                 <div class="col-md-4">
                     <label for="txtname" class="form-label">Nombre</label>
-                    <asp:TextBox runat="server" ID="tntname" CssClass="form-control" />
+                    <asp:TextBox runat="server" ID="txtname" CssClass="form-control" />
                 </div>
 
                 <div class="col-md-4">
@@ -50,3 +50,6 @@
         </div>
     </form>
 </asp:Content>
+
+
+
