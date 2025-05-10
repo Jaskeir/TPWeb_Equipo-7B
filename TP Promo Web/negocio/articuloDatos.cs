@@ -13,7 +13,6 @@ namespace negocio
         public List<Articulo> getArticles()
         {
             List<Articulo> articulos = new List<Articulo>();
-            //imagenesDatos imagenesDatos = new imagenesDatos();
             database db = new database();
             try
             {
@@ -41,6 +40,8 @@ namespace negocio
 
         public void setArticleData(Articulo tempArticle, SqlDataReader data)
         {
+            imagenesDatos imagenes = new imagenesDatos();
+        
             tempArticle.Id = (int)data["Id"];
             tempArticle.Codigo = (string)data["Codigo"];
             tempArticle.Nombre = (string)data["Nombre"];
@@ -48,7 +49,7 @@ namespace negocio
             tempArticle.Marca.Nombre = (string)data["Marca"];
             tempArticle.Categoria.Nombre = (string)data["Categoria"];
             tempArticle.Precio = Math.Round((decimal)data["Precio"], 2);
-            //articulo.Imagenes = imagenesDatos.Listar(articulo.Id);
+            tempArticle.Imagenes = imagenes.Listar((int)data["Id"]);
         }
 
         public Articulo getArticle(int id)
