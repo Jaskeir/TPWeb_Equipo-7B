@@ -141,7 +141,7 @@ namespace TP_Promo_Web
              try
              {
                 voucher.Articulo.Codigo= Art,              //toma el id del articulo de la "sesion"
-                voucher.FechaCanje = System.DateTime.Today;                                // deveria devolver el dia de hoy
+                voucher.FechaCanje = "gatdate()";          // deveria devolver el dia de hoy cuando pasa a la base de datos (comando de sql server)
                  voucher.CodigoVoucher = code;                      // toma el codigo del voucher de la "sesion"
                  voucher.Cliente.Id=aux.Id ;                        //toma el id del cliente obtenido en la busqeda
 

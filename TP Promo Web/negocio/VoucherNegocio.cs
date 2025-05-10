@@ -12,22 +12,19 @@ namespace negocio
     {
         public void cargar(Voucher voucher)
         {
+           //La consulta funciona solo esta comentado hasta terminar de definir el voucher
             database datos= new database();
-            //lo dejo comentado porque en realidad hay que modificar la baseno agregar nuevos voucher
-            /*try
+            
+            try
             {
                 
-                 datos.setQuery("INSERT INTO Vouchers VALUES (@articulo, @Idcliente, @Fecha, @idArticulo)");
+                 datos.setQuery("update Vouchers set  IdCliente=@Idcliente, FechaCanje=@Fecha , IdArticulo=@idArticulo Where CodigoVoucher = @codigo");
                  datos.setParameter("@codigo", voucher.CodigoVoucher);
                  datos.setParameter("@Idcliente", voucher.Cliente.Id);
                  datos.setParameter("@Fecha", voucher.FechaCanje);
                  datos.setParameter("@idArticulo", voucher.Articulo.Id);
 
-
-
                 datos.execQuery();  
-
-                return true;
             }
             catch (Exception ex)
             {
@@ -36,7 +33,7 @@ namespace negocio
             finally
             {
                 datos.closeConnection();
-            }*/
+            }
 
 
         }
