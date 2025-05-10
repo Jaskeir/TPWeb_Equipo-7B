@@ -12,10 +12,22 @@ namespace TP_Promo_Web
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
+
+        public string Codigo
+        
+        {
+            get;set;
+        }
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
+            if (Session["Code"]!=null)
+            {
+                Codigo = Session["Code"].ToString();
+                
+                lblUser.Text = Codigo;
+            }
                 //code.InnerText = Session["Code"].ToString();
                 articuloDatos articuloDatos = new articuloDatos();
 

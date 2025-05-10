@@ -3,6 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Label ID="lblProductos" Text="" runat="server" />
+    
+    <% if (!string.IsNullOrEmpty(Codigo))
+{ %>
+    
+        <h2>CODIGO A CANJEAR:</h2>
+    <asp:Label Text="" ID="lblUser" runat="server" Style="font-size:30px"/>
+    
+
+
     <div class="row">
         <asp:Repeater ID="rptArticulos" runat="server">
             <ItemTemplate>
@@ -41,6 +51,17 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
+<% }
+    else 
+    
+    {%>
+
+<h2 style="color:red">Codigo incorrecto o ya canjeado </h2>
+<a href="default.aspx" style="text-decoration:none; color:black; font-size:20px; " >Volver atras</ a>
+<br />
+
+<% }%>
+    
 
 
 </asp:Content>

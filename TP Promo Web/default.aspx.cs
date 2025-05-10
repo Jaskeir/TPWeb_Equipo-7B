@@ -22,23 +22,28 @@ namespace TP_Promo_Web
         protected void btnCanjear_Click(object sender, EventArgs e)
         {
             string codigo = code.Text;
+            
             database datos = new database();
             try
             {
-                
-                datos.setQuery("Select CodigoVoucher from Vouchers where CodigoVoucher = @codigo AND [IdCliente] IS  NULL");
+
+                datos.setQuery("SELECT CodigoVoucher FROM Vouchers WHERE CodigoVoucher COLLATE Latin1_General_CS_AS = @codigo AND [IdCliente] IS NULL"); 
                 datos.setParameter("@codigo", codigo);
                 datos.execQuery();
 
                 if (datos.Lector.Read())
                 {
+                    
                     Session.Add("Code", code.Text);
+                    
                     Response.Redirect("productos.aspx", false);
                 }
                 else
                 {
-                    lblCanje.Text = "Codigo inexistente o ya canjeado";
+                    Session.Remove("Code");  // S
+                    
                 }
+                Response.Redirect("productos.aspx", false);
             }
             catch (Exception ex)
             {
