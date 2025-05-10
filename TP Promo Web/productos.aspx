@@ -33,7 +33,8 @@
 
                             <h5 class="card-title"><%# Eval("Nombre") %></h5>
                             <p class="card-text"><%# Eval("Descripcion")%></p>
-                            <a href="datosClientes.aspx" class="btn btn-primary">Canjear</a>
+                            
+                            <a href="datosClientes.aspx" class="btn btn-primary">Canjear</a> 
                         </div>
                     </div>
                 </div>

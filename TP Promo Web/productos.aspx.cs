@@ -15,14 +15,20 @@ namespace TP_Promo_Web
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            
-            //code.InnerText = Session["Code"].ToString();
-            articuloDatos articuloDatos = new articuloDatos();
+
+                //code.InnerText = Session["Code"].ToString();
+                articuloDatos articuloDatos = new articuloDatos();
 
             rptArticulos.DataSource = articuloDatos.getArticles();
             rptArticulos.DataBind();
 
 
         }
+
+       /*protected void btnCanjear_Click(object sender, EventArgs e)
+        {
+           guardar en secion el articulo elegido
+        }*/
     }
 }
+

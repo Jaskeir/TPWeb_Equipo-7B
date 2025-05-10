@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="articuloDatos.cs" />
+    <Compile Include="VoucherNegocio.cs" />
     <Compile Include="database.cs" />
     <Compile Include="imagenesDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

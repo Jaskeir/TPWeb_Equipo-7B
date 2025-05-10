@@ -25,6 +25,7 @@ namespace TP_Promo_Web
             database datos = new database();
             try
             {
+                
                 datos.setQuery("Select CodigoVoucher from Vouchers where CodigoVoucher = @codigo AND [IdCliente] IS  NULL");
                 datos.setParameter("@codigo", codigo);
                 datos.execQuery();
