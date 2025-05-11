@@ -25,7 +25,15 @@ namespace TP_Promo_Web
             txtciud.ReadOnly = true;
             txtCP.ReadOnly = true;
 
-            codigo = Session["Code"].ToString(); //recupera el codigo del voucher                                  
+
+            if (Session["Code"] != null)
+            {
+                codigo = Session["Code"].ToString();
+
+
+            } 
+
+            /*codigo = Session["Code"].ToString();*/ //recupera el codigo del voucher                                  
             //agregar recuperacion del articulo elegido
         }
 

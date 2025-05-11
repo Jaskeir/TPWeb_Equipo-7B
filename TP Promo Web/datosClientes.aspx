@@ -3,53 +3,65 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
-        <div>
-            
-            <div class="row">
 
-                <div class="col-md-3">
-                    <label for="txtDNI" class="form-label">DNI</label>
-                    <asp:TextBox runat="server" ID="txtDNI" CssClass="form-control" AutoPostBack ="true" OnTextChanged="txtDNI_TextChanged"/>
-                </div>
+<form id="form1" runat="server">
 
-                <div class="col-md-4">
-                    <label for="txtname" class="form-label">Nombre</label>
-                    <asp:TextBox runat="server" ID="txtname" CssClass="form-control" />
-                </div>
+<% if (!string.IsNullOrEmpty(codigo)) { %>
 
-                <div class="col-md-4">
-                    <label for="txtApel" class="form-label">Apellido</label>
-                    <asp:TextBox runat="server" ID="txtApel" CssClass="form-control" />
-                </div>
+    <div class="row">
 
-                 <div class="col-md-4">
-                    <label for="txtDirec" class="form-label">Email</label>
-                    <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
-                </div>
-
-                <div class="col-md-4">
-                    <label for="txtDirec" class="form-label">Dirección</label>
-                    <asp:TextBox runat="server" ID="txtDirec" CssClass="form-control" />
-                </div>
-
-                <div class="col-md-4">
-                    <label for="txtciud" class="form-label">Ciudad</label>
-                    <asp:TextBox runat="server" ID="txtciud" CssClass="form-control" />
-                </div>
-
-                <div class="col-md-4">
-                    <label for="txtCP" class="form-label">Código Postal</label>
-                    <asp:TextBox runat="server" ID="txtCP" CssClass="form-control" />
-                </div>
-
-                <div class="col-12">
-                    <asp:Button Text="Participar!" ID="btnParticipar" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" style="margin-top: 10px;" />
-                </div>
-            </div>
+        <div class="col-md-3">
+            <label for="txtDNI" class="form-label">DNI</label>
+            <asp:TextBox runat="server" ID="txtDNI" CssClass="form-control" AutoPostBack ="true" OnTextChanged="txtDNI_TextChanged"/>
         </div>
-    </form>
+
+        <div class="col-md-4">
+            <label for="txtname" class="form-label">Nombre</label>
+            <asp:TextBox runat="server" ID="txtname" CssClass="form-control" />
+        </div>
+
+        <div class="col-md-4">
+            <label for="txtApel" class="form-label">Apellido</label>
+            <asp:TextBox runat="server" ID="txtApel" CssClass="form-control" />
+        </div>
+
+        <div class="col-md-4">
+            <label for="txtDirec" class="form-label">Email</label>
+            <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
+        </div>
+
+        <div class="col-md-4">
+            <label for="txtDirec" class="form-label">Dirección</label>
+            <asp:TextBox runat="server" ID="txtDirec" CssClass="form-control" />
+        </div>
+
+        <div class="col-md-4">
+            <label for="txtciud" class="form-label">Ciudad</label>
+            <asp:TextBox runat="server" ID="txtciud" CssClass="form-control" />
+        </div>
+
+        <div class="col-md-4">
+            <label for="txtCP" class="form-label">Código Postal</label>
+            <asp:TextBox runat="server" ID="txtCP" CssClass="form-control" />
+        </div>
+
+        <div class="col-12">
+            <asp:Button Text="Participar!" ID="btnParticipar" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" style="margin-top: 10px;" />
+        </div>
+    </div>
+
+<% } else { %>
+
+    <h2 style="color:red">Codigo incorrecto o ya canjeado </h2>
+    <a href="default.aspx" style="text-decoration:none; color:black; font-size:20px;">Volver atras</a>
+    <br />
+
+<% } %>
+
+</form>
+
 </asp:Content>
+
 
 
 
