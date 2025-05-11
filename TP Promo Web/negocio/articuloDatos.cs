@@ -41,7 +41,7 @@ namespace negocio
         public void setArticleData(Articulo tempArticle, SqlDataReader data)
         {
             imagenesDatos imagenes = new imagenesDatos();
-        
+
             tempArticle.Id = (int)data["Id"];
             tempArticle.Codigo = (string)data["Codigo"];
             tempArticle.Nombre = (string)data["Nombre"];

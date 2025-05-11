@@ -24,6 +24,15 @@ namespace TP_Promo_Web
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control productName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label productName;
+
+        /// <summary>
         /// Control txtDNI.
         /// </summary>
         /// <remarks>

@@ -13,11 +13,17 @@ namespace TP_Promo_Web
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-      public string codigo {  get; set; }  //pare setear codigo de voucherguardado en ssion
-      public Articulo articulo { get; set; } //para setear el articulo, en secion secion al elegir el producto
+
+        private string codigo;  // pare setear codigo de voucherguardado en ssion
+        private Articulo articulo { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Code"] == null)
+            {
+                Response.Redirect("default.aspx", true);
+                return;
+            }
             txtname.ReadOnly = true;
             txtApel.ReadOnly = true;
             txtEmail.ReadOnly = true;
@@ -25,25 +31,28 @@ namespace TP_Promo_Web
             txtciud.ReadOnly = true;
             txtCP.ReadOnly = true;
 
+            int idSelected = int.Parse(Session["productoSeleccionado"].ToString());
 
-            if (Session["Code"] != null)
-            {
-                codigo = Session["Code"].ToString();
+            articulo = getSelectedArticle(idSelected);
 
-
-            } 
+            productName.Text = articulo.Nombre;
 
             /*codigo = Session["Code"].ToString();*/ //recupera el codigo del voucher                                  
-            //agregar recuperacion del articulo elegido
+                                                     //agregar recuperacion del articulo elegido
         }
 
-
+        private Articulo getSelectedArticle(int id)
+        {
+            articuloDatos articuloDatos = new articuloDatos();
+            Articulo articulo = articuloDatos.getArticle(id);
+            return articulo;
+        }
 
         protected void txtDNI_TextChanged(object sender, EventArgs e)
         {
             Validaciones validaciones = new Validaciones();
             string dni = txtDNI.Text;
-            if (dni.Length>=7 && dni.Length<9)
+            if (dni.Length >= 7 && dni.Length < 9)
             {
                 if (validaciones.soloNumeros(dni))
                 {
@@ -162,7 +171,7 @@ namespace TP_Promo_Web
 
                 }
             }
-           
+
         }
 
         protected void btnCanjear_Click(object sender, EventArgs e)
@@ -194,7 +203,8 @@ namespace TP_Promo_Web
                         if (validaciones.soloLetras(txtApel.Text))
                         {
                             nuevo.Apellido = txtApel.Text;
-                        } else
+                        }
+                        else
                         {
                             txtApel.Text = "";
                             return;//agregar indicacion de que esta mal el formato del apellido
@@ -206,16 +216,16 @@ namespace TP_Promo_Web
                         }
                         else
                         {
-                            txtEmail.Text="";
+                            txtEmail.Text = "";
                             return;//agregar indicacion de que esta mal el formato del email
                         }
 
-                                
+
                         nuevo.Direccion = txtDirec.Text;
                         nuevo.Ciudad = txtciud.Text;
-                                if (validaciones.soloNumeros(txtCP.Text))
-                                {
-                                    nuevo.CP = int.Parse(txtCP.Text);
+                        if (validaciones.soloNumeros(txtCP.Text))
+                        {
+                            nuevo.CP = int.Parse(txtCP.Text);
                         }
                         else
                         {
@@ -224,7 +234,7 @@ namespace TP_Promo_Web
                         }
 
 
-                            clineg.addCliente(nuevo);
+                        clineg.addCliente(nuevo);
 
                     }
 
@@ -249,13 +259,13 @@ namespace TP_Promo_Web
                     Response.Redirect("CanjeCorrecto.aspx", false);
                 }
             }
-                    
+
         }
 
-        
+
     }
- }
-  
+}
+
 
 
 

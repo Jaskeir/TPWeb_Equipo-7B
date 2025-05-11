@@ -11,7 +11,7 @@ namespace negocio
 {
     public class ClienteNegocio
     {
-       public Cliente FindCliente(string dni)
+        public Cliente FindCliente(string dni)
         {
             List<Cliente> lista = new List<Cliente>();
             database datos = new database();
@@ -26,7 +26,7 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
-                   
+
                     aux.Id = (int)datos.Lector["Id"];
                     aux.Documento = (string)datos.Lector["Documento"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
@@ -54,7 +54,7 @@ namespace negocio
                 {
                     return item;
                 }
-                    
+
             }
             aux.Id = -1;
             aux.Documento = "";
@@ -69,11 +69,11 @@ namespace negocio
         public bool addCliente(Cliente cliente)
         {
             database databaseCliente = new database();
-            
+
 
             try
             {
-                
+
                 databaseCliente.setQuery("INSERT INTO Clientes (Documento,Nombre,Apellido,Email,Direccion,Ciudad,CP) VALUES (@Documento,@nombre,@Apellido,@mail,@Direccion,@Ciudad,@CP)");
                 databaseCliente.setParameter("@Documento", cliente.Documento);
                 databaseCliente.setParameter("@nombre", cliente.Nombre);
@@ -84,7 +84,7 @@ namespace negocio
                 databaseCliente.setParameter("@CP", cliente.CP);
 
                 databaseCliente.execQuery();
-                return true;    
+                return true;
 
             }
             catch (Exception ex)
