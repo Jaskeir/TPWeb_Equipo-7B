@@ -37,5 +37,55 @@ namespace dominio
             return true;
         }
 
+        public bool Validaremail(string txt)
+        {
+            int i;
+            bool arroba = false, com = false, email = false;
+
+
+            for (i = 0; i < txt.Length; i++)
+            {
+                if (txt[i] == '@')
+                {
+                    if (i != 0 && txt[i + 1] != '.')
+                    {
+                        arroba = true;
+                    }
+
+                }
+
+
+                if (txt[i] == '.')
+                {
+                    if (txt[i + 1] == 'c' && txt[i + 2] == 'o' && txt[i + 3] == 'm' && txt[i + 4] == '\0')
+                    {
+                        com = true;
+
+                    }
+
+
+                }
+
+            }
+
+            if (arroba && com)
+            {
+                email = true;
+                return email;
+
+            }
+            return email;
+        }
+
+        public bool soloLetras(string txt)
+        {
+            foreach (char caracter in txt)
+            {
+                if (!(char.IsLetter(caracter)))
+                    return false;
+            }
+            return true;
+        }
+
     }
 }

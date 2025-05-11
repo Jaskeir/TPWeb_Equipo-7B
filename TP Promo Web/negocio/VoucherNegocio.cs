@@ -18,11 +18,11 @@ namespace negocio
             try
             {
                 
-                 datos.setQuery("update Vouchers set  IdCliente=@Idcliente, FechaCanje=@Fecha , IdArticulo=@idArticulo Where CodigoVoucher = @codigo");
+                 datos.setQuery("update Vouchers set  IdCliente=@Idcliente, FechaCanje=@Fecha , IdArticulo=@idArticulo Where CodigoVoucher=@codigo");
                  datos.setParameter("@codigo", voucher.CodigoVoucher);
                  datos.setParameter("@Idcliente", voucher.Cliente.Id);
                  datos.setParameter("@Fecha", voucher.FechaCanje);
-                 datos.setParameter("@idArticulo", voucher.Articulo.Id);
+                 datos.setParameter("@idArticulo", voucher.Articulo);
 
                 datos.execQuery();  
             }

@@ -69,6 +69,7 @@
     <Content Include="default.aspx" />
     <Content Include="datosClientes.aspx" />
     <Content Include="productos.aspx" />
+    <Content Include="CanjeCorrecto.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="productos.aspx.designer.cs">
       <DependentUpon>productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CanjeCorrecto.aspx.cs">
+      <DependentUpon>CanjeCorrecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CanjeCorrecto.aspx.designer.cs">
+      <DependentUpon>CanjeCorrecto.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

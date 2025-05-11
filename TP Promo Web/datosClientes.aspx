@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="col-12">
-                    <asp:Button Text="Canjear" ID="btnCanjear" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" style="margin-top: 10px;" />
+                    <asp:Button Text="Participar!" ID="btnParticipar" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" style="margin-top: 10px;" />
                 </div>
             </div>
         </div>
