@@ -19,11 +19,16 @@ namespace TP_Promo_Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
             if (Session["Code"] == null)
             {
                 Response.Redirect("default.aspx", true);
                 return;
             }
+=======
+
+
+>>>>>>> Stashed changes
             txtname.ReadOnly = true;
             txtApel.ReadOnly = true;
             txtEmail.ReadOnly = true;
@@ -174,11 +179,21 @@ namespace TP_Promo_Web
 
         }
 
-        protected void btnCanjear_Click(object sender, EventArgs e)
+
+        protected void btnParticipar_Click(object sender, EventArgs e)
         {
-            /*hay que crear un nuevo cliente si no esta en la base de datos*/
+            /*hay que crear un nuevo cliente si no está en la base de datos*/
             string dni = txtDNI.Text;
             Validaciones validaciones = new Validaciones();
+
+            errorNombre.Text = "";
+            errorApel.Text = "";
+            errorEmail.Text = "";
+            errorDirec.Text = "";
+            errorCiud.Text = "";
+            errorCp.Text = "";
+
+            bool error = false;
 
             if (dni.Length >= 7 && dni.Length < 9)
             {
@@ -190,14 +205,17 @@ namespace TP_Promo_Web
                     if (nuevo.Id == -1)
                     {
                         nuevo.Documento = txtDNI.Text;
+
                         if (validaciones.soloLetras(txtname.Text))
                         {
                             nuevo.Nombre = txtname.Text;
                         }
                         else
                         {
-                            txtname.Text = "";
-                            return;//agregar indicacion de que esta mal el formato del nombre
+                            txtname.ReadOnly = false;
+                            errorNombre.Text = "Solo letras";
+                            error = true;
+                            //agregar indicacion de que esta mal el formato del nombre
                         }
 
                         if (validaciones.soloLetras(txtApel.Text))
@@ -206,8 +224,9 @@ namespace TP_Promo_Web
                         }
                         else
                         {
-                            txtApel.Text = "";
-                            return;//agregar indicacion de que esta mal el formato del apellido
+                            txtApel.ReadOnly = false;
+                            errorApel.Text = "Solo letras";
+                            error = true;
                         }
 
                         if (validaciones.Validaremail(txtEmail.Text))
@@ -216,6 +235,7 @@ namespace TP_Promo_Web
                         }
                         else
                         {
+<<<<<<< Updated upstream
                             txtEmail.Text = "";
                             return;//agregar indicacion de que esta mal el formato del email
                         }
@@ -226,39 +246,84 @@ namespace TP_Promo_Web
                         if (validaciones.soloNumeros(txtCP.Text))
                         {
                             nuevo.CP = int.Parse(txtCP.Text);
+=======
+                            txtEmail.ReadOnly = false;
+                            errorEmail.Text = "Formato incorrecto";
+
+                            error = true;
+                            //agregar indicacion de que esta mal el formato del email
+                        }
+
+                        if (!validaciones.soloNumeros(txtDirec.Text) && !validaciones.soloLetras(txtDirec.Text))
+                        {
+                            nuevo.Direccion = txtDirec.Text;
+>>>>>>> Stashed changes
                         }
                         else
                         {
-                            txtCP.Text = "";
-                            return;// agregar indicacion de que esta mal el formato del codigo postal
+                            txtDirec.ReadOnly = false;
+                            errorDirec.Text = "No se puede ingresar solo letras o solo numeros";
+                            error = true;
                         }
 
+                        if (!validaciones.soloNumeros(txtciud.Text))
+                        {
+                            nuevo.Ciudad = txtciud.Text;
+                        }
+                        else
+                        {
+                            txtciud.ReadOnly = false;
+                            errorCiud.Text = "No se pueden ingresar solo numeros";
+                            error = true;
+                        }
+
+<<<<<<< Updated upstream
+                        clineg.addCliente(nuevo);
+=======
+                        if (validaciones.soloNumeros(txtCP.Text))
+                        {
+                            nuevo.CP = int.Parse(txtCP.Text);
+                        }
+                        else
+                        {
+                            txtCP.ReadOnly = false;
+                            errorCp.Text = "Solo numeros";
+                            error = true;
+                        }
+>>>>>>> Stashed changes
+
+                        if (error == true)
+                        {
+                            return;
+                        }
 
                         clineg.addCliente(nuevo);
 
+
+                        //completos los atributos del voucher
+
+                        /*Voucher voucher = new Voucher();
+                       VoucherNegocio vouneg = new VoucherNegocio();
+                        try
+                        {
+                            voucher.Articulo= 99;              //deberia tomar el id del articulo de la "sesion"
+                           voucher.FechaCanje = "gatdate()";          // deveria devolver el dia de hoy cuando pasa a la base de datos (comando de sql server)
+                            voucher.CodigoVoucher = codigo;                      // toma el codigo del voucher de la "sesion"
+                            voucher.Cliente= clineg.FindCliente(dni);                        //toma el cliente obtenido en la busqeda
+
+                           vouneg.cargar(voucher);                //carga las demas columnas de la tabla de vaucher
+
+                        }
+                        catch (Exception ex)
+                        {
+                           // MessageBox.Show(ex.ToString());
+                        }*/
+
+                        Response.Redirect("CanjeCorrecto.aspx", false);
                     }
-
-                    //completos los atributos del voucher
-
-                    /*Voucher voucher = new Voucher();
-                   VoucherNegocio vouneg = new VoucherNegocio();
-                    try
-                    {
-                        voucher.Articulo= 99;              //deberia tomar el id del articulo de la "sesion"
-                       voucher.FechaCanje = "gatdate()";          // deveria devolver el dia de hoy cuando pasa a la base de datos (comando de sql server)
-                        voucher.CodigoVoucher = codigo;                      // toma el codigo del voucher de la "sesion"
-                        voucher.Cliente= clineg.FindCliente(dni);                        //toma el cliente obtenido en la busqeda
-
-                       vouneg.cargar(voucher);                //carga las demas columnas de la tabla de vaucher
-
-                    }
-                    catch (Exception ex)
-                    {
-                       // MessageBox.Show(ex.ToString());
-                    }*/
-                    Response.Redirect("CanjeCorrecto.aspx", false);
                 }
             }
+<<<<<<< Updated upstream
 
         }
 
@@ -266,6 +331,17 @@ namespace TP_Promo_Web
     }
 }
 
+=======
+        }
+
+
+
+
+
+    }
+}
+  
+>>>>>>> Stashed changes
 
 
 

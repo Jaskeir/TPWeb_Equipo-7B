@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <form id="form1" runat="server">
+<<<<<<< Updated upstream
         <h2>Artículo a canjear:</h2>
         <asp:Label ID="productName" runat="server" Text=""></asp:Label>
         <div class="row">
@@ -48,6 +49,85 @@
                 <asp:Button Text="Participar!" ID="btnParticipar" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" Style="margin-top: 10px;" />
             </div>
         </div>
+=======
+
+        <% if (!string.IsNullOrEmpty(codigo))
+            { %>
+
+
+        <div class="col-md-3">
+            <label for="txtDNI" class="form-label">DNI</label>
+            <asp:TextBox runat="server" ID="txtDNI" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtDNI_TextChanged" />
+
+        </div>
+
+        <div class="col-md-4">
+            <label for="txtname" class="form-label">Nombre</label>
+            <div class="d-flex align-items-center">
+                <asp:TextBox style="margin-right:10px;" runat="server" ID="txtname" CssClass="form-control me-2 " />
+                <asp:Label ID="errorNombre" runat="server" CssClass="text-danger small d-inline" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="txtApel" class="form-label">Apellido</label>
+            <div class="d-flex align-items-center">
+                <asp:TextBox style="margin-right:10px;" runat="server" ID="txtApel" CssClass="form-control" />
+                <asp:Label ID="errorApel" runat="server" CssClass="text-danger small d-inline" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="txtDirec" class="form-label">Email</label>
+            <div class="d-flex align-items-center">
+                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
+                <asp:Label ID="errorEmail" runat="server" CssClass="text-danger small d-inline" />
+            </div>
+        </div>
+       
+
+
+        <div class="col-md-4">
+
+            <label for="txtDirec" class="form-label">Dirección</label>
+            <div class="d-flex align-items-center">
+                <asp:TextBox runat="server" ID="txtDirec" CssClass="form-control" />
+                <asp:Label ID="errorDirec" runat="server" CssClass="text-danger small d-inline" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <label for="txtciud" class="form-label">Ciudad</label>
+            <div class="d-flex align-items-center">
+                <asp:TextBox runat="server" ID="txtciud" CssClass="form-control" />
+                <asp:Label ID="errorCiud" runat="server" CssClass="text-danger small d-inline" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="txtCP" class="form-label">Código Postal</label>
+            <div class="d-flex align-items-center">
+                <asp:TextBox runat="server" ID="txtCP" CssClass="form-control" />
+                <asp:Label ID="errorCp" runat="server" CssClass="text-danger small d-inline" />
+            </div>
+        </div>
+
+        <div class="col-12">
+            <asp:Button Text="Participar!" ID="btnParticipar" class="btn btn-primary" OnClick="btnParticipar_Click" runat="server" Style="margin-top: 10px;" />
+        </div>
+
+
+        <% }
+            else
+            { %>
+
+        <h2 style="color: red">Codigo incorrecto o ya canjeado </h2>
+        <a href="default.aspx" style="text-decoration: none; color: black; font-size: 20px;">Volver atras</a>
+        <br />
+
+        <% } %>
+>>>>>>> Stashed changes
     </form>
 
 </asp:Content>

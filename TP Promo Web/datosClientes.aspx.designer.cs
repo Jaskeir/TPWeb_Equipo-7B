@@ -51,6 +51,15 @@ namespace TP_Promo_Web
         protected global::System.Web.UI.WebControls.TextBox txtname;
 
         /// <summary>
+        /// Control errorNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorNombre;
+
+        /// <summary>
         /// Control txtApel.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace TP_Promo_Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApel;
+
+        /// <summary>
+        /// Control errorApel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorApel;
 
         /// <summary>
         /// Control txtEmail.
@@ -69,6 +87,15 @@ namespace TP_Promo_Web
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
+        /// Control errorEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorEmail;
+
+        /// <summary>
         /// Control txtDirec.
         /// </summary>
         /// <remarks>
@@ -76,6 +103,15 @@ namespace TP_Promo_Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDirec;
+
+        /// <summary>
+        /// Control errorDirec.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorDirec;
 
         /// <summary>
         /// Control txtciud.
@@ -87,6 +123,15 @@ namespace TP_Promo_Web
         protected global::System.Web.UI.WebControls.TextBox txtciud;
 
         /// <summary>
+        /// Control errorCiud.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorCiud;
+
+        /// <summary>
         /// Control txtCP.
         /// </summary>
         /// <remarks>
@@ -94,6 +139,15 @@ namespace TP_Promo_Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCP;
+
+        /// <summary>
+        /// Control errorCp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorCp;
 
         /// <summary>
         /// Control btnParticipar.
