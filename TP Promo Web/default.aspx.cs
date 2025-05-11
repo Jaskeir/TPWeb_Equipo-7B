@@ -33,15 +33,12 @@ namespace TP_Promo_Web
 
                 if (datos.Lector.Read())
                 {
-                    
-                    Session.Add("Code", code.Text);
-                    
-                    Response.Redirect("productos.aspx", false);
-                }
-                else
+                    Session.Add("Code", code.Text); // Este es el código a canjear
+                } else
                 {
-                    Session.Remove("Code");  // S
-                    
+                    Session["msgError"] = "El código ya fue canjeado o no existe";
+                    Response.Redirect("errorPage.aspx", false);
+                    return;
                 }
                 Response.Redirect("productos.aspx", false);
             }
