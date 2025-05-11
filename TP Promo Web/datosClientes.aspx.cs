@@ -128,74 +128,114 @@ namespace TP_Promo_Web
                     {
                         nuevo.Documento = txtDNI.Text;
 
-                        if (validaciones.soloLetras(txtname.Text))
+                        if (string.IsNullOrWhiteSpace(txtname.Text))
                         {
-                            nuevo.Nombre = txtname.Text;
+                            txtname.ReadOnly = false;
+                            errorNombre.Text = "no puede estar vacío";
+                            error = true;
                         }
-                        else
+                        else if (!validaciones.soloLetras(txtname.Text))
                         {
                             txtname.ReadOnly = false;
                             errorNombre.Text = "Solo letras";
                             error = true;
-                            //agregar indicacion de que esta mal el formato del nombre
-                        }
-
-                        if (validaciones.soloLetras(txtApel.Text))
-                        {
-                            nuevo.Apellido = txtApel.Text;
                         }
                         else
+                        {
+                            nuevo.Nombre = txtname.Text;
+                        }
+
+
+                        // Validacion del apellido
+                        if (string.IsNullOrWhiteSpace(txtApel.Text))
+                        {
+                            txtApel.ReadOnly = false;
+                            errorApel.Text = "no puede estar vacio";
+                            error = true;
+                        }
+                        else if (!validaciones.soloLetras(txtApel.Text))
                         {
                             txtApel.ReadOnly = false;
                             errorApel.Text = "Solo letras";
                             error = true;
                         }
-
-                        if (validaciones.Validaremail(txtEmail.Text))
-                        {
-                            nuevo.Email = txtEmail.Text;
-                        }
                         else
+                        {
+                            nuevo.Apellido = txtApel.Text;
+                        }
+
+                        // Validacion del email
+                        if (string.IsNullOrWhiteSpace(txtEmail.Text))
+                        {
+                            txtEmail.ReadOnly = false;
+                            errorEmail.Text = "no puede estar vacio";
+                            error = true;
+                        }
+                        else if (!validaciones.Validaremail(txtEmail.Text))
                         {
                             txtEmail.ReadOnly = false;
                             errorEmail.Text = "Formato incorrecto";
-
                             error = true;
-                            //agregar indicacion de que esta mal el formato del email
-                        }
-
-                        if (!validaciones.soloNumeros(txtDirec.Text) && !validaciones.soloLetras(txtDirec.Text))
-                        {
-                            nuevo.Direccion = txtDirec.Text;
                         }
                         else
+                        {
+                            nuevo.Email = txtEmail.Text;
+                        }
+
+                        // Validacion de la direccion
+                        if (string.IsNullOrWhiteSpace(txtDirec.Text))
+                        {
+                            txtDirec.ReadOnly = false;
+                            errorDirec.Text = "no puede estar vacio";
+                            error = true;
+                        }
+                        else if (validaciones.soloNumeros(txtDirec.Text) || validaciones.soloLetras(txtDirec.Text))
                         {
                             txtDirec.ReadOnly = false;
                             errorDirec.Text = "No se puede ingresar solo letras o solo numeros";
                             error = true;
                         }
-
-                        if (!validaciones.soloNumeros(txtciud.Text))
-                        {
-                            nuevo.Ciudad = txtciud.Text;
-                        }
                         else
+                        {
+                            nuevo.Direccion = txtDirec.Text;
+                        }
+
+                        // Validacion de la ciudad
+                        if (string.IsNullOrWhiteSpace(txtciud.Text))
+                        {
+                            txtciud.ReadOnly = false;
+                            errorCiud.Text = "El campo ciudad no puede estar vacio";
+                            error = true;
+                        }
+                        else if (validaciones.soloNumeros(txtciud.Text))
                         {
                             txtciud.ReadOnly = false;
                             errorCiud.Text = "No se pueden ingresar solo numeros";
                             error = true;
                         }
-
-                        if (validaciones.soloNumeros(txtCP.Text))
-                        {
-                            nuevo.CP = int.Parse(txtCP.Text);
-                        }
                         else
+                        {
+                            nuevo.Ciudad = txtciud.Text;
+                        }
+
+                        // Validacion del codigo postal
+                        if (string.IsNullOrWhiteSpace(txtCP.Text))
+                        {
+                            txtCP.ReadOnly = false;
+                            errorCp.Text = "No puede estar vacio";
+                            error = true;
+                        }
+                        else if (!validaciones.soloNumeros(txtCP.Text))
                         {
                             txtCP.ReadOnly = false;
                             errorCp.Text = "Solo numeros";
                             error = true;
                         }
+                        else
+                        {
+                            nuevo.CP = int.Parse(txtCP.Text);
+                        }
+
 
                         if (error == true)
                         {
