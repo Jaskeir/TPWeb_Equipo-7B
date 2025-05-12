@@ -27,13 +27,13 @@ namespace dominio
 
             string URL = "HTTP";
             string aux = txt.ToUpper();
-           
+
             for (int i = 0; i <= 3; i++)
             {
                 if (URL[i] != aux[i])
                     return false;
             }
-            
+
             return true;
         }
 
@@ -51,28 +51,22 @@ namespace dominio
                     {
                         arroba = true;
                     }
-
                 }
 
 
                 if (txt[i] == '.')
                 {
-                    if (txt[i + 1] == 'c' && txt[i + 2] == 'o' && txt[i + 3] == 'm' && txt[i + 4] == '\0')
+                    if (txt[i + 1] == 'c' && txt[i + 2] == 'o' && txt[i + 3] == 'm')
                     {
                         com = true;
-
                     }
-
-
                 }
-
             }
 
             if (arroba && com)
             {
                 email = true;
                 return email;
-
             }
             return email;
         }
