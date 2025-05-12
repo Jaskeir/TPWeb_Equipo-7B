@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace dominio
 {
@@ -51,25 +52,28 @@ namespace dominio
                     {
                         arroba = true;
                     }
+
                 }
 
-
-                if (txt[i] == '.')
-                {
-                    if (txt[i + 1] == 'c' && txt[i + 2] == 'o' && txt[i + 3] == 'm')
-                    {
-                        com = true;
-                    }
-                }
             }
+
+            if (txt[txt.Length - 4] == '.' && txt[txt.Length - 3] == 'c' && txt[txt.Length - 2] == 'o' && txt[txt.Length - 1] == 'm')
+            {
+                com = true;
+
+            }
+
+
 
             if (arroba && com)
             {
                 email = true;
                 return email;
+
             }
             return email;
         }
+
 
         public bool soloLetras(string txt)
         {
