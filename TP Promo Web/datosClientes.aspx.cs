@@ -146,135 +146,131 @@ namespace TP_Promo_Web
             Cliente nuevo = new Cliente();
             ClienteNegocio clineg = new ClienteNegocio();
             nuevo = clineg.FindCliente(dni);
+
             if (nuevo.Id != -1) // Cliente existente (Porque ID es distinto a -1)
             {
                 registrarCanjeoVoucher(nuevo);
                 Response.Redirect("CanjeCorrecto.aspx", false);
+                return;
+            }
+
+            nuevo.Documento = txtDNI.Text;
+
+            if (string.IsNullOrWhiteSpace(txtname.Text))
+            {
+                txtname.ReadOnly = false;
+                errorNombre.Text = "no puede estar vacío";
+                error = true;
+            }
+            else if (!validaciones.soloLetras(txtname.Text))
+            {
+                txtname.ReadOnly = false;
+                errorNombre.Text = "Solo letras";
+                error = true;
             }
             else
             {
-                nuevo.Documento = txtDNI.Text;
-
-                if (string.IsNullOrWhiteSpace(txtname.Text))
-                {
-                    txtname.ReadOnly = false;
-                    errorNombre.Text = "no puede estar vacío";
-                    error = true;
-                }
-                else if (!validaciones.soloLetras(txtname.Text))
-                {
-                    txtname.ReadOnly = false;
-                    errorNombre.Text = "Solo letras";
-                    error = true;
-                }
-                else
-                {
-                    nuevo.Nombre = txtname.Text;
-                }
-
-
-                // Validacion del apellido
-                if (string.IsNullOrWhiteSpace(txtApel.Text))
-                {
-                    txtApel.ReadOnly = false;
-                    errorApel.Text = "no puede estar vacio";
-                    error = true;
-                }
-                else if (!validaciones.soloLetras(txtApel.Text))
-                {
-                    txtApel.ReadOnly = false;
-                    errorApel.Text = "Solo letras";
-                    error = true;
-                }
-                else
-                {
-                    nuevo.Apellido = txtApel.Text;
-                }
-
-                // Validacion del email
-                if (string.IsNullOrWhiteSpace(txtEmail.Text))
-                {
-                    txtEmail.ReadOnly = false;
-                    errorEmail.Text = "no puede estar vacio";
-                    error = true;
-                }
-                else if (!validaciones.Validaremail(txtEmail.Text))
-                {
-                    txtEmail.ReadOnly = false;
-                    errorEmail.Text = "Formato incorrecto";
-                    error = true;
-                }
-                else
-                {
-                    nuevo.Email = txtEmail.Text;
-                }
-
-                // Validacion de la direccion
-                if (string.IsNullOrWhiteSpace(txtDirec.Text))
-                {
-                    txtDirec.ReadOnly = false;
-                    errorDirec.Text = "no puede estar vacio";
-                    error = true;
-                }
-                else if (validaciones.soloNumeros(txtDirec.Text) || validaciones.soloLetras(txtDirec.Text))
-                {
-                    txtDirec.ReadOnly = false;
-                    errorDirec.Text = "No se puede ingresar solo letras o solo numeros";
-                    error = true;
-                }
-                else
-                {
-                    nuevo.Direccion = txtDirec.Text;
-                }
-
-                // Validacion de la ciudad
-                if (string.IsNullOrWhiteSpace(txtciud.Text))
-                {
-                    txtciud.ReadOnly = false;
-                    errorCiud.Text = "El campo ciudad no puede estar vacio";
-                    error = true;
-                }
-                else if (validaciones.soloNumeros(txtciud.Text))
-                {
-                    txtciud.ReadOnly = false;
-                    errorCiud.Text = "No se pueden ingresar solo numeros";
-                    error = true;
-                }
-                else
-                {
-                    nuevo.Ciudad = txtciud.Text;
-                }
-
-                // Validacion del codigo postal
-                if (string.IsNullOrWhiteSpace(txtCP.Text))
-                {
-                    txtCP.ReadOnly = false;
-                    errorCp.Text = "No puede estar vacio";
-                    error = true;
-                }
-                else if (!validaciones.soloNumeros(txtCP.Text))
-                {
-                    txtCP.ReadOnly = false;
-                    errorCp.Text = "Solo numeros";
-                    error = true;
-                }
-                else
-                {
-                    nuevo.CP = int.Parse(txtCP.Text);
-                }
-
-
-                if (error == true)
-                {
-                    return;
-                }
-                clineg.addCliente(nuevo);
-                registrarCanjeoVoucher(nuevo);
-                Response.Redirect("CanjeCorrecto.aspx", false);
+                nuevo.Nombre = txtname.Text;
             }
 
-        }
+            // Validacion del apellido
+            if (string.IsNullOrWhiteSpace(txtApel.Text))
+            {
+                txtApel.ReadOnly = false;
+                errorApel.Text = "no puede estar vacio";
+                error = true;
+            }
+            else if (!validaciones.soloLetras(txtApel.Text))
+            {
+                txtApel.ReadOnly = false;
+                errorApel.Text = "Solo letras";
+                error = true;
+            }
+            else
+            {
+                nuevo.Apellido = txtApel.Text;
+            }
 
+            // Validacion del email
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                txtEmail.ReadOnly = false;
+                errorEmail.Text = "no puede estar vacio";
+                error = true;
+            }
+            else if (!validaciones.Validaremail(txtEmail.Text))
+            {
+                txtEmail.ReadOnly = false;
+                errorEmail.Text = "Formato incorrecto";
+                error = true;
+            }
+            else
+            {
+                nuevo.Email = txtEmail.Text;
+            }
+
+            // Validacion de la direccion
+            if (string.IsNullOrWhiteSpace(txtDirec.Text))
+            {
+                txtDirec.ReadOnly = false;
+                errorDirec.Text = "no puede estar vacio";
+                error = true;
+            }
+            else if (validaciones.soloNumeros(txtDirec.Text) || validaciones.soloLetras(txtDirec.Text))
+            {
+                txtDirec.ReadOnly = false;
+                errorDirec.Text = "No se puede ingresar solo letras o solo numeros";
+                error = true;
+            }
+            else
+            {
+                nuevo.Direccion = txtDirec.Text;
+            }
+
+            // Validacion de la ciudad
+            if (string.IsNullOrWhiteSpace(txtciud.Text))
+            {
+                txtciud.ReadOnly = false;
+                errorCiud.Text = "El campo ciudad no puede estar vacio";
+                error = true;
+            }
+            else if (validaciones.soloNumeros(txtciud.Text))
+            {
+                txtciud.ReadOnly = false;
+                errorCiud.Text = "No se pueden ingresar solo numeros";
+                error = true;
+            }
+            else
+            {
+                nuevo.Ciudad = txtciud.Text;
+            }
+
+            // Validacion del codigo postal
+            if (string.IsNullOrWhiteSpace(txtCP.Text))
+            {
+                txtCP.ReadOnly = false;
+                errorCp.Text = "No puede estar vacio";
+                error = true;
+            }
+            else if (!validaciones.soloNumeros(txtCP.Text))
+            {
+                txtCP.ReadOnly = false;
+                errorCp.Text = "Solo numeros";
+                error = true;
+            }
+            else
+            {
+                nuevo.CP = int.Parse(txtCP.Text);
+            }
+
+            if (error == true)
+            {
+                return;
+            }
+            clineg.addCliente(nuevo);
+            registrarCanjeoVoucher(clineg.FindCliente(dni));
+            Response.Redirect("CanjeCorrecto.aspx", false);
+        }
     }
 }
 

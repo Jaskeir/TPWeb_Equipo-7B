@@ -13,18 +13,16 @@ namespace negocio
     {
         public Cliente FindCliente(string dni)
         {
-            List<Cliente> lista = new List<Cliente>();
             database datos = new database();
             Cliente aux = new Cliente();
 
             try
             {
-
                 datos.setQuery("Select Id,Documento,Nombre,Apellido,Email,Direccion,Ciudad,CP from Clientes where Documento = @dni");
                 datos.setParameter("@dni", dni);
                 datos.execQuery();
 
-                while (datos.Lector.Read())
+                if (datos.Lector.Read())
                 {
 
                     aux.Id = (int)datos.Lector["Id"];
@@ -35,10 +33,13 @@ namespace negocio
                     aux.Direccion = (string)datos.Lector["Direccion"];
                     aux.Ciudad = (string)datos.Lector["Ciudad"];
                     aux.CP = (int)datos.Lector["CP"];
-
-                    lista.Add(aux);
+                }
+                else
+                {
+                    aux.Id = -1;
                 }
             }
+
             catch (Exception ex)
             {
                 throw ex;
@@ -47,33 +48,13 @@ namespace negocio
             {
                 datos.closeConnection();
             }
-
-            foreach (Cliente item in lista)
-            {
-                if (item.Documento == dni)
-                {
-                    return item;
-                }
-
-            }
-            aux.Id = -1;
-            aux.Documento = "";
-            aux.Nombre = "";
-            aux.Apellido = "";
-            aux.Email = "";
-            aux.Direccion = "";
-            aux.Ciudad = "";
-            aux.CP = -1;
             return aux;
         }
         public bool addCliente(Cliente cliente)
         {
             database databaseCliente = new database();
-
-
             try
             {
-
                 databaseCliente.setQuery("INSERT INTO Clientes (Documento,Nombre,Apellido,Email,Direccion,Ciudad,CP) VALUES (@Documento,@nombre,@Apellido,@mail,@Direccion,@Ciudad,@CP)");
                 databaseCliente.setParameter("@Documento", cliente.Documento);
                 databaseCliente.setParameter("@nombre", cliente.Nombre);
