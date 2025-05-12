@@ -264,6 +264,9 @@ namespace TP_Promo_Web
                         }*/
 
                         Response.Redirect("CanjeCorrecto.aspx", false);
+                    } else
+                    {
+                        Response.Redirect("CanjeCorrecto.aspx", false);
                     }
                 }
             }
