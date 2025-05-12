@@ -11,13 +11,16 @@
 
             <div class="col-md-3">
                 <label for="txtDNI" class="form-label">DNI</label>
-                <asp:TextBox runat="server" ID="txtDNI" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtDNI_TextChanged" />
+                <div class="d-flex align-items-center">
+                    <asp:TextBox runat="server" ID="txtDNI" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtDNI_TextChanged" />
+                    <asp:Label ID="errorDNI" runat="server" CssClass="text-danger small d-inline" />
+                </div>
             </div>
 
             <div class="col-md-4">
                 <label for="txtname" class="form-label">Nombre</label>
                 <div class="d-flex align-items-center">
-                    <asp:TextBox style="margin-right:10px;" runat="server" ID="txtname" CssClass="form-control me-2" />
+                    <asp:TextBox Style="margin-right: 10px;" runat="server" ID="txtname" CssClass="form-control me-2" />
                     <asp:Label ID="errorNombre" runat="server" CssClass="text-danger small d-inline" />
                 </div>
             </div>
@@ -25,7 +28,7 @@
             <div class="col-md-4">
                 <label for="txtApel" class="form-label">Apellido</label>
                 <div class="d-flex align-items-center">
-                    <asp:TextBox style="margin-right:10px;" runat="server" ID="txtApel" CssClass="form-control" />
+                    <asp:TextBox Style="margin-right: 10px;" runat="server" ID="txtApel" CssClass="form-control" />
                     <asp:Label ID="errorApel" runat="server" CssClass="text-danger small d-inline" />
                 </div>
             </div>

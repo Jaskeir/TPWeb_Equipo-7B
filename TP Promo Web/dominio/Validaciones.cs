@@ -40,11 +40,17 @@ namespace dominio
 
         public bool Validaremail(string txt)
         {
+            int largo = txt.Length;
+
+            if (largo < 4)
+            {
+                return false;
+            }
+
             int i;
             bool arroba = false, com = false, email = false;
 
-
-            for (i = 0; i < txt.Length; i++)
+            for (i = 0; i < largo; i++)
             {
                 if (txt[i] == '@')
                 {
@@ -57,7 +63,7 @@ namespace dominio
 
             }
 
-            if (txt[txt.Length - 4] == '.' && txt[txt.Length - 3] == 'c' && txt[txt.Length - 2] == 'o' && txt[txt.Length - 1] == 'm')
+            if (txt[largo - 4] == '.' && txt[largo - 3] == 'c' && txt[largo - 2] == 'o' && txt[largo - 1] == 'm')
             {
                 com = true;
 
@@ -85,5 +91,30 @@ namespace dominio
             return true;
         }
 
+        public bool esCadena(string txt)
+        {
+            int cont = 0;
+            foreach (char caracter in txt)
+            {
+                if (!(char.IsLetter(caracter)))
+                {
+                    if (char.IsWhiteSpace(caracter))
+                    {
+                        cont++;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+                if (cont > 3)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
     }
 }

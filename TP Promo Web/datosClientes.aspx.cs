@@ -126,6 +126,7 @@ namespace TP_Promo_Web
             string dni = txtDNI.Text;
             Validaciones validaciones = new Validaciones();
 
+            errorDNI.Text = "";
             errorNombre.Text = "";
             errorApel.Text = "";
             errorEmail.Text = "";
@@ -137,10 +138,12 @@ namespace TP_Promo_Web
 
             if (dni.Length < 7 || dni.Length >= 9)
             {
+                errorDNI.Text = "DNI Iválido";
                 return;
             }
             if (!validaciones.soloNumeros(dni))
             {
+                errorDNI.Text = "DNI Iválido";
                 return;
             }
             Cliente nuevo = new Cliente();
@@ -163,7 +166,7 @@ namespace TP_Promo_Web
                 errorNombre.Text = "no puede estar vacío";
                 error = true;
             }
-            else if (!validaciones.soloLetras(txtname.Text))
+            else if (!validaciones.esCadena(txtname.Text))
             {
                 txtname.ReadOnly = false;
                 errorNombre.Text = "Solo letras";
@@ -181,7 +184,7 @@ namespace TP_Promo_Web
                 errorApel.Text = "no puede estar vacio";
                 error = true;
             }
-            else if (!validaciones.soloLetras(txtApel.Text))
+            else if (!validaciones.esCadena(txtApel.Text))
             {
                 txtApel.ReadOnly = false;
                 errorApel.Text = "Solo letras";
