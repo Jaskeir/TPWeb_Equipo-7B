@@ -14,10 +14,10 @@ namespace TP_Promo_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Code"] != null)
+            if (Session["Code"] == null)
             {
-                string Codigo = Session["Code"].ToString();
-                lblUser.Text = Codigo;
+                Response.Redirect("default.aspx", true);
+                return;
             }
             if (IsPostBack)
             {

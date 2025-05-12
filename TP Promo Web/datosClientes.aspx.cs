@@ -150,6 +150,7 @@ namespace TP_Promo_Web
             if (nuevo.Id != -1) // Cliente existente (Porque ID es distinto a -1)
             {
                 registrarCanjeoVoucher(nuevo);
+                Session.Add("email", txtEmail.Text);
                 Response.Redirect("CanjeCorrecto.aspx", false);
                 return;
             }
@@ -269,6 +270,7 @@ namespace TP_Promo_Web
             }
             clineg.addCliente(nuevo);
             registrarCanjeoVoucher(clineg.FindCliente(dni));
+            Session.Add("email", txtEmail.Text);
             Response.Redirect("CanjeCorrecto.aspx", false);
         }
     }
