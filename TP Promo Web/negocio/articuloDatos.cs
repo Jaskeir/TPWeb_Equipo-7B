@@ -16,7 +16,8 @@ namespace negocio
             database db = new database();
             try
             {
-                db.setQuery("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion AS Marca, C.Descripcion AS Categoria, Precio FROM Articulos A INNER JOIN Marcas M ON A.IdMarca = M.Id INNER JOIN Categorias C ON A.IdCategoria = C.Id");
+                //db.setQuery("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion AS Marca, C.Descripcion AS Categoria, Precio FROM Articulos A INNER JOIN Marcas M ON A.IdMarca = M.Id INNER JOIN Categorias C ON A.IdCategoria = C.Id");
+                db.setProcedure("obtenerArticulos");
                 db.execQuery();
 
                 while (db.Lector.Read())
@@ -47,7 +48,9 @@ namespace negocio
             tempArticle.Nombre = (string)data["Nombre"];
             tempArticle.Descripcion = (string)data["Descripcion"];
             tempArticle.Marca.Nombre = (string)data["Marca"];
+            tempArticle.Marca.Id = (int)data["MarcaID"];
             tempArticle.Categoria.Nombre = (string)data["Categoria"];
+            tempArticle.Categoria.Id = (int)data["CategoriaID"];
             tempArticle.Precio = Math.Round((decimal)data["Precio"], 2);
             tempArticle.Imagenes = imagenes.Listar((int)data["Id"]);
         }

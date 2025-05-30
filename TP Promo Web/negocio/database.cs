@@ -30,6 +30,12 @@ namespace negocio
             comando.CommandText = consulta;
         }
 
+        public void setProcedure(string procedure)
+        {
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.CommandText = procedure;
+        }
+
         public void execQuery()
         {
             comando.Connection = conexion;
